@@ -1,14 +1,14 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "author": "Tom Cruise"
   },
   {
-    "id": "2",
+    "id": 2,
     "author": "Nelson Mandela"
   },
   {
-    "id": "3",
+    "id": 3,
     "author": "Allan Shear"
   }
 ]
