@@ -10,4 +10,7 @@ router.get('/', authorController.getallAuthors)
 
 router.post('/', authorController.createNewAuthor)
 
+// get author by id
+router.get('/:id', authorController.getAuthorById)
+
 module.exports = router

@@ -22,7 +22,7 @@ const createNewAuthor = (req, res)=>{
             fs.writeFile('./Models/authors.json', JSON.stringify([...JSON.parse(data), newAuthor], null, 2), (err)=>{
                 if (err){
                         res.send("Failed to add new author")
-                } else {
+                } else { 
                         res.send("Author added succesfully")
                 }
             })
@@ -30,7 +30,28 @@ const createNewAuthor = (req, res)=>{
     })
 }
 
+// get specific author by id
+const getAuthorById = (req, res) => {
+    // refer to an id
+    const { id } = req.params
+    // read file
+    fs.readFile('./Models/authors.json', 'utf-8', (err, data) => {
+        if (err) {
+            res.send('Failed to get data')
+        } else {
+            const authors = JSON.parse(data)
+            const author = authors.find(a => a.id == id);
+            if (author) {
+                res.json(author)
+            } else {
+                res.send('Author not found!')
+            }
+        }
+    })
+}
+
 module.exports = {
     createNewAuthor,
-    getallAuthors
+    getallAuthors,
+    getAuthorById
 }
