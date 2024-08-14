@@ -1,13 +1,13 @@
-const express = require('express')
-const morgan = require('morgan')
-const authorRouter = require('./Routes/authorsRouter')
-const quoteRouter = require('./Routes/quotesRouter')
+import express, { json } from 'express'
+import morgan from 'morgan'
+import authorRouter from './Routes/authorsRouter.js'
+import quoteRouter from './Routes/quotesRouter.js'
 
 const app = express()
 
 // Middleware
 app.use(morgan('dev'));
-app.use(express.json())
+app.use(json())
 
 
 // Router Middleware

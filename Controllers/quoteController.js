@@ -1,7 +1,7 @@
-const fs = require('node:fs')
+import { readFile, writeFile } from 'node:fs'
 
-const getallQuotes = (req, res)=>{
-    fs.readFile('./Models/quotes.json', "utf8", (err, data)=>{
+export const getallQuotes = (req, res)=>{
+    readFile('./Models/quotes.json', "utf8", (err, data)=>{
         if(err){
             res.send("Failed to read data ....")
         } else {
@@ -10,16 +10,16 @@ const getallQuotes = (req, res)=>{
     })
 }
 
-const createNewQuote = (req, res)=>{
+export const createNewQuote = (req, res)=>{
 
     let newQuote = req.body
 
     // first get the content
-    fs.readFile('./Models/quotes.json', "utf8", (err, data)=>{
+    readFile('./Models/quotes.json', "utf8", (err, data)=>{
         if(err){
             res.send("Failed to read data ....")
         } else {
-            fs.writeFile('./Models/quotes.json', JSON.stringify([...JSON.parse(data), newQuote], null, 2), (err)=>{
+            writeFile('./Models/quotes.json', JSON.stringify([...JSON.parse(data), newQuote], null, 2), (err)=>{
                 if (err){
                         res.send("Failed to add new quote")
                 } else {
@@ -30,7 +30,7 @@ const createNewQuote = (req, res)=>{
     })
 }
 
-module.exports = {
-    createNewQuote,
-    getallQuotes
-}
+// export default {
+//     createNewQuote,
+//     getallQuotes
+// }

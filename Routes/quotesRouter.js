@@ -1,12 +1,12 @@
-const express = require('express')
-const router = express.Router()
-const fs = require('node:fs')
-const quoteController = require('../Controllers/quoteController')
+import { Router } from 'express'
+const router = Router()
+import fs from 'node:fs'
+import { getallQuotes, createNewQuote } from '../Controllers/quoteController.js'
 
 // get requests
-router.get('/', quoteController.getallQuotes)
+router.get('/', getallQuotes)
 
 // post requests
-router.post('/', quoteController.createNewQuote)
+router.post('/', createNewQuote)
 
-module.exports = router
+export default router

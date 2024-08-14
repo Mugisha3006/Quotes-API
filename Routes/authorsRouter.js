@@ -1,16 +1,22 @@
-const express = require('express')
-const router = express.Router()
-const fs = require('node:fs')
-const authorController = require('../Controllers/authorController')
+import { Router } from 'express'
+const router = Router()
+import fs from 'node:fs'
+import { getallAuthors, createNewAuthor, getAuthorById, updateAuthorById, deleteAuthorById } from '../Controllers/authorController.js'
 
 // get requests
 
-router.get('/', authorController.getallAuthors)
+router.get('/', getallAuthors)
 // post requests
 
-router.post('/', authorController.createNewAuthor)
+router.post('/', createNewAuthor)
 
 // get author by id
-router.get('/:id', authorController.getAuthorById)
+router.get('/:id', getAuthorById)
 
-module.exports = router
+// update author by id 
+router.put('/:id', updateAuthorById)
+
+// delete author by id 
+router.delete('/:id', deleteAuthorById)
+
+export default router
