@@ -1,10 +1,22 @@
 [
   {
     "id": 1,
-    "author": "Tom Cruisew"
+    "author": "Tom Cruise"
   },
   {
     "id": 2,
+    "author": "Nelson Mandela"
+  },
+  {
+    "id": 3,
+    "author": "JF kennedy"
+  },
+  {
+    "id": 4,
+    "author": "Batman"
+  },
+  {
+    "id": 5,
     "author": "Nelson Mandela"
   }
 ]

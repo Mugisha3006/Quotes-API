@@ -108,7 +108,6 @@ export const deleteAuthorById = (req, res) => {
                         res.send('Failed to update authors')
                     } else {
                         res.json('Successfully deleted author')
-                        fs.
                     }
                 })
                 // console.log(authors)
