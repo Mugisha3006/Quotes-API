@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs'
+import { readFile, writeFile, promises as fs } from 'node:fs'
 
 export const getallQuotes = (req, res)=>{
     readFile('./Models/quotes.json', "utf8", (err, data)=>{
@@ -31,28 +31,52 @@ export const createNewQuote = (req, res)=>{
 }
 
 // get specific quote by id
-export const getQuoteById = (req, res) => {
-    // refer to an id query
-    // const { id } = req.params
+export const getQuoteById = async (req, res) => {
+    try {
+        const data = await fs.readFile('./Models/quotes.json', 'utf-8');
+        const id = parseInt(req.params.id, 10);
+        const quotes = JSON.parse(data);
+        
+        const quote = quotes.find(q => q.id === id);
+        // const filteredQuotes = quotes.filter(q => q.id === id);
+        // const quote = filteredQuotes.length > 0 ? filteredQuotes[0] : undefined;
+        // console.log(quote)
+        if (quote) {
+            res.json(quote);
+        } else {
+            res.status(404).json({ message: "Quote not found" });
+        }
+    } catch (err) {
+        res.status(500).send('Failed to get data');
+    }
+};
 
-    // read file
+// update the existing quote by id 
+export const UpdateQuoteById = (req, res) => {
+    const { id } = req.params;
+
     fs.readFile('./Models/quotes.json', 'utf-8', (err, data) => {
         if (err) {
-            res.send('Failed to get data')
-        } else {
-            const id = parseInt(req.params.id) 
-            const quote = id.find(q => q.id === id);
-            if (quote) {
-                res.json(quote);
-            } else {
-                res.status(404).json({ message: "Quote not found" });
-            }
+            return res.status(500).send('Failed to get data');
         }
-    })
-}
 
+        let quotes = JSON.parse(data);
+        const quoteIndex = quotes.findIndex(q => q.id == id);
 
-// export default {
-//     createNewQuote,
-//     getallQuotes
-// }
+        if (quoteIndex !== -1) {
+            // Merge existing quote data with the new data from req.body
+            quotes[quoteIndex] = { ...quotes[quoteIndex], ...req.body };
+
+            fs.writeFile('./Models/quotes.json', JSON.stringify(quotes, null, 2), (err) => {
+                if (err) {
+                    return res.status(500).send('Failed to update quotes');
+                }
+
+                res.json(quotes[quoteIndex]); // Return the updated quote
+            });
+        } else {
+            res.status(404).json({ message: 'Quote not found!' });
+        }
+    });
+};
+
