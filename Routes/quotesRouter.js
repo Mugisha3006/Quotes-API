@@ -1,7 +1,8 @@
 import { Router } from 'express'
-const router = Router()
 import fs from 'node:fs'
-import { getallQuotes, createNewQuote, getQuoteById, UpdateQuoteById } from '../Controllers/quoteController.js'
+import { getallQuotes, createNewQuote, getQuoteById, UpdateQuoteById, deleteQuoteById } from '../Controllers/quoteController.js'
+
+const router = Router()
 
 // get requests
 router.get('/', getallQuotes)
@@ -12,7 +13,9 @@ router.post('/', createNewQuote)
 // get quote by id
 router.get('/:id', getQuoteById)
 
-// Update existing quote by id
-router.put('/:id', UpdateQuoteById)
+// delete existing quote by id
+router.delete('/:id', deleteQuoteById)
+
+
 
 export default router

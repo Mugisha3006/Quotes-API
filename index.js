@@ -1,9 +1,18 @@
-import express, { json } from 'express'
-import morgan from 'morgan'
-import authorRouter from './Routes/authorsRouter.js'
-import quoteRouter from './Routes/quotesRouter.js'
+import express, { json } from 'express';
+import fs from 'node:fs';
+import morgan from 'morgan';
+import path from 'path';
+import authorRouter from './Routes/authorsRouter.js';
+import quoteRouter from './Routes/quotesRouter.js';
 
 const app = express()
+const dirname = path.resolve()
+
+// create a write stream (in append mode)
+let accessLogStream = fs.createWriteStream(path.join(dirname, 'Logs/request_logs.txt'), {flags:'a'})
+
+// setup the logger
+app.use(morgan('combined', {stream: accessLogStream}))
 
 // Middleware
 app.use(morgan('dev'));

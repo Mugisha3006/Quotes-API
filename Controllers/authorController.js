@@ -1,5 +1,3 @@
-// const fs = require('node:fs')
-import { Console } from 'node:console'
 import fs from 'node:fs'
 
 
@@ -44,7 +42,7 @@ export const getAuthorById = (req, res) => {
             res.send('Failed to get data')
         } else {
             const authors = JSON.parse(data) //all the authors
-            const author = authors.find(a => a.id == id);
+            const author = authors.find(a => parseInt(a.id) == id);
             if (author) {
                 res.json(author)
             } else {
@@ -63,7 +61,7 @@ export const updateAuthorById = (req, res) => {
         if (err) {
             res.send('Failed to get data')
         } else {
-            let authors = JSON.parse(data) //initial models data
+            let authors = JSON.parse(data) //initial models in json format
             const authorIndex = authors.findIndex(a => a.id == id)
             if (authorIndex !== -1) {
                 authors[authorIndex] = { ...authors[authorIndex], ...req.body }
@@ -121,10 +119,3 @@ export const deleteAuthorById = (req, res) => {
 }
 
 
-// export default {
-//     createNewAuthor,
-//     getallAuthors,
-//     getAuthorById,
-//     updateAuthorById,
-//     deleteAuthorById
-// }
