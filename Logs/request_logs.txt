@@ -39,3 +39,5 @@
 ::1 - - [22/Aug/2024:14:12:45 +0000] "PUT /quotes/1 HTTP/1.1" 404 147 "-" "PostmanRuntime/7.41.1"
 ::1 - - [22/Aug/2024:14:13:42 +0000] "PUT /quotes/1 HTTP/1.1" 404 147 "-" "PostmanRuntime/7.41.1"
 ::1 - - [22/Aug/2024:14:14:24 +0000] "PUT /quotes/1 HTTP/1.1" 404 147 "-" "PostmanRuntime/7.41.1"
+::1 - - [22/Aug/2024:14:39:58 +0000] "GET /authors HTTP/1.1" 200 41 "-" "PostmanRuntime/7.41.1"
+::1 - - [22/Aug/2024:14:41:05 +0000] "GET /authors HTTP/1.1" 200 41 "-" "PostmanRuntime/7.41.1"

@@ -1,15 +1,31 @@
 import fs from 'node:fs'
+import { PrismaClient } from '@prisma/client/extension'
+
+// export const getallAuthors = (req, res)=>{
+//     fs.readFile('./Models/authors.json', "utf8", (err, data)=>{
+//         if(err){
+//             res.send("Failed to read data ....")
+//         } else {
+//             res.json(JSON.parse(data))
+//         }
+//     })
+// }
 
 
-export const getallAuthors = (req, res)=>{
-    fs.readFile('./Models/authors.json', "utf8", (err, data)=>{
-        if(err){
-            res.send("Failed to read data ....")
-        } else {
-            res.json(JSON.parse(data))
-        }
-    })
-}
+export const getallAuthors = async (req, res) => {
+    try {
+        const allAuthors = await prisma.author.findMany();
+
+        console.log(allAuthors)
+
+        res.status(StatusCodes.OK).json({
+            authors: allAuthors,
+        });
+    } catch (err) {
+        res.json({ message: "Can't get Authors!", err });
+    }
+};
+
 
 export const createNewAuthor = (req, res)=>{
 
