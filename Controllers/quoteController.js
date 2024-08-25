@@ -1,13 +1,22 @@
-import { readFile, writeFile, writeFileSync , readFileSync } from 'node:fs'
+import { readFile, writeFile, writeFileSync, readFileSync } from 'node:fs'
+import { PrismaClient } from '@prisma/client'
+import { StatusCodes } from 'http-status-codes';
 
-export const getallQuotes = (req, res)=>{
-    readFile('./Models/quotes.json', "utf8", (err, data)=>{
-        if(err){
-            res.send("Failed to read data ....")
-        } else {
-            res.json(JSON.parse(data))
-        }
-    })
+
+const prisma = new PrismaClient();
+
+export const getallQuotes = async (req, res)=>{
+    try {
+        const allQuotes = await prisma.quote.findMany();
+
+        console.log(allQuotes)
+
+        res.status(StatusCodes.OK).json({
+            quotes: allQuotes,
+        });
+    } catch (err) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(err.message);
+    }
 }
 
 export const createNewQuote = (req, res)=>{
