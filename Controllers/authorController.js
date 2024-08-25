@@ -1,16 +1,9 @@
 import fs from 'node:fs'
-import { PrismaClient } from '@prisma/client/extension'
+import { PrismaClient } from '@prisma/client'
+import { StatusCodes } from 'http-status-codes';
 
-// export const getallAuthors = (req, res)=>{
-//     fs.readFile('./Models/authors.json', "utf8", (err, data)=>{
-//         if(err){
-//             res.send("Failed to read data ....")
-//         } else {
-//             res.json(JSON.parse(data))
-//         }
-//     })
-// }
 
+const prisma = new PrismaClient();
 
 export const getallAuthors = async (req, res) => {
     try {
@@ -22,7 +15,7 @@ export const getallAuthors = async (req, res) => {
             authors: allAuthors,
         });
     } catch (err) {
-        res.json({ message: "Can't get Authors!", err });
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(err.message);
     }
 };
 
