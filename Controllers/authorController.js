@@ -9,7 +9,7 @@ export const getallAuthors = async (req, res) => {
     try {
         const allAuthors = await prisma.author.findMany();
 
-        console.log(allAuthors)
+        // console.log(allAuthors)
 
         res.status(StatusCodes.OK).json({
             authors: allAuthors,

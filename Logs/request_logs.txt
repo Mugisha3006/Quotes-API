@@ -66,3 +66,6 @@
 ::1 - - [25/Aug/2024:22:43:30 +0000] "GET /authors HTTP/1.1" 200 175 "-" "PostmanRuntime/7.41.2"
 ::1 - - [25/Aug/2024:22:45:34 +0000] "GET /authors HTTP/1.1" 200 175 "-" "PostmanRuntime/7.41.2"
 ::1 - - [25/Aug/2024:22:45:37 +0000] "GET /authors HTTP/1.1" 200 175 "-" "PostmanRuntime/7.41.2"
+::1 - - [25/Aug/2024:22:57:14 +0000] "GET /quotes HTTP/1.1" 200 339 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+::1 - - [25/Aug/2024:22:57:39 +0000] "GET /quotes HTTP/1.1" 200 339 "-" "PostmanRuntime/7.41.2"
+::1 - - [25/Aug/2024:22:58:52 +0000] "GET /quotes HTTP/1.1" 200 348 "-" "PostmanRuntime/7.41.2"
