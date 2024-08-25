@@ -9,7 +9,7 @@ export const getallQuotes = async (req, res)=>{
     try {
         const allQuotes = await prisma.quote.findMany();
 
-        // console.log(allQuotes)
+        console.log(allQuotes)
 
         res.status(StatusCodes.OK).json({
             quotes: allQuotes,
