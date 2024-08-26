@@ -5,6 +5,7 @@ import { StatusCodes } from 'http-status-codes';
 
 const prisma = new PrismaClient();
 
+// get all quotes
 export const getallQuotes = async (req, res)=>{
     try {
         const allQuotes = await prisma.quote.findMany();
@@ -40,30 +41,20 @@ export const createNewQuote = (req, res)=>{
 }
 
 // get specific quote by id
-export const getQuoteById = (req, res) => {
-    const data = readFileSync('./Models/quotes.json', 'utf-8');
-    const id = parseInt(req.params.id, 10);
-    // console.log(id)
-    // const quotes = JSON.parse(data);
-    // const quoteIndex = quotes.findIndex(q => q.id === id);
-    // console.log(quotes[quoteIndex])
-   
+export const getQuoteById = async (req, res) => {
+    const quoteIndex = parseInt(req.params.id, 10);
     try {
-        const data = readFileSync('./Models/quotes.json', 'utf-8');
-        // console.log(data)
-        const id = parseInt(req.params.id, 10);
-        const quotes = JSON.parse(data);
-        
-        const quoteIndex = quotes.findIndex(q => q.id === id);
-        const quote = quoteIndex >= 0 ? quotes[quoteIndex] : undefined;
-        
-        if (quote) {
-            res.json(quote);
-        } else {
-            res.status(404).json({ message: "Quote not found" });
-        }
+        const quoteId = await prisma.quote.findUnique({
+            where: {
+                id: quoteIndex,
+            }
+        });
+
+        res.status(StatusCodes.OK).json({
+            quote: quoteId,
+        });
     } catch (err) {
-        res.status(500).send('Failed to get data');
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(err.message);
     }
 };
 
