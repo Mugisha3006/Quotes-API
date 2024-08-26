@@ -19,26 +19,30 @@ export const getallAuthors = async (req, res) => {
     }
 };
 
+// create new Author
+export const createNewAuthor = async (req, res) => {
 
-export const createNewAuthor = (req, res)=>{
+    let reqAuthor = JSON.stringify(req.body)//from postman
+    try {
+        const newAuthor = await prisma.author.create({
+            data: {
+                author: reqAuthor,
+                picture:"Author Image"
+            }
+        });
 
-    let newAuthor = req.body//from postman
+        console.log(newAuthor)
 
-    // first get the content
-    fs.readFile('./Models/authors.json', "utf8", (err, data)=>{
-        if(err){
-            res.send("Failed to read data ....")
-        } else {
-            fs.writeFile('./Models/authors.json', JSON.stringify([...JSON.parse(data), newAuthor], null, 2), (err)=>{
-                if (err){
-                        res.send("Failed to add new author")
-                } else { 
-                        res.send("Author added succesfully")
-                }
-            })
-        }
-    })
-}
+        res.status(StatusCodes.OK).json({
+            author: newAuthor,
+        });
+    } catch (err) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(err.message);
+    }
+
+
+    
+};
 
 // get specific author by id
 export const getAuthorById = async (req, res) => {
@@ -49,8 +53,6 @@ export const getAuthorById = async (req, res) => {
                 id: idAuthor,
             }
         });
-
-        // console.log(authorId)
 
         res.status(StatusCodes.OK).json({
             author: authorId,
