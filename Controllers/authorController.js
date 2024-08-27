@@ -62,34 +62,39 @@ export const getAuthorById = async (req, res) => {
 }
 
 // update the existing author by id 
-export const updateAuthorById = (req, res) => {
-    // refer to an id query
-    const { id } = req.params
-    // read file
-    fs.readFile('./Models/authors.json', 'utf-8', (err, data) => {
-        if (err) {
-            res.send('Failed to get data')
+export const updateAuthorById = async (req, res) => {
+    const { id } = req.params; // Extract the author ID from request parameters
+
+    // validate the Id
+    if (isNaN(Number(id))) {
+        return res.status(400).send('Invalid author ID.');
+    };
+
+    try {
+        // Update the author in the database using Prisma
+        const updatedAuthor = await prisma.author.update({
+            where: {
+                id: Number(id), // Convert id to a number if it's not already (Prisma requires the correct type)
+            },
+            data: {
+                ...req.body, // Spread the request body to update only the fields provided
+            },
+        });
+
+        // If successful, return the updated author
+        res.json(updatedAuthor);
+    } catch (err) {
+        console.error(err); //log the full error 
+        
+        // Check if the error is due to the author not being found
+        if (err.code === 'P2025') { // P2025 is the Prisma error code for 'Record to update not found.'
+            res.status(404).send('Author not found!');
         } else {
-            let authors = JSON.parse(data) //initial models in json format
-            const authorIndex = authors.findIndex(a => a.id == id)
-            if (authorIndex !== -1) {
-                authors[authorIndex] = { ...authors[authorIndex], ...req.body }
-                // write data to the file
-                fs.writeFile('./Models/authors.json', JSON.stringify(authors, null, 2), (err) => {
-                    if (err) {
-                        res.send('Failed to update authors')
-                    } else {
-                        res.json(authors[authorIndex])
-                    }
-                })
-            } else {
-                res.send('Authors not found!')
-            }
-
+            // Handle other errors, such as database connection issues
+            res.status(500).send('Failed to update author');
         }
-    })
-
-}
+    }
+};
 
 // delete author by id 
 export const deleteAuthorById = (req, res) => {
