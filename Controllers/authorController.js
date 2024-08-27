@@ -21,27 +21,28 @@ export const getallAuthors = async (req, res) => {
 
 // create new Author
 export const createNewAuthor = async (req, res) => {
+    // Extracting 'author' and 'picture' directly from req.body
+    const { author, picture } = req.body;
 
-    let reqAuthor = JSON.stringify(req.body)//from postman
     try {
+        // Creating a new author with the extracted data
         const newAuthor = await prisma.author.create({
             data: {
-                author: reqAuthor,
-                picture:"Author Image"
+                author: author, // Use the actual author data
+                picture: picture || "Author Image" // Default to "Author Image" if picture is not provided
             }
         });
 
-        console.log(newAuthor)
+        console.log(newAuthor);
 
+        // Sending a response with the newly created author data
         res.status(StatusCodes.OK).json({
             author: newAuthor,
         });
     } catch (err) {
+        // Sending an error response in case of an exception
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(err.message);
     }
-
-
-    
 };
 
 // get specific author by id
