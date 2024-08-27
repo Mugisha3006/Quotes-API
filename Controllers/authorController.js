@@ -97,39 +97,32 @@ export const updateAuthorById = async (req, res) => {
 };
 
 // delete author by id 
-export const deleteAuthorById = (req, res) => {
-    // refer to an id query
+export const deleteAuthorById = async (req, res) => {
+    // extract id from the req params
     const { id } = req.params
-    // read file
-    fs.readFile('./Models/authors.json', 'utf-8', (err, data) => {
-        
-        if (err) {
-            res.send('Failed to get data')
+    try {
+        // Convert the id to a number, if necessary (assuming id is stored as an integer)
+        const authorId = parseInt(id, 10);
+
+        // Delete the author from the database using Prisma
+        const deletedAuthor = await prisma.author.delete({
+            where: {
+                id: authorId,
+            },
+        });
+
+        // If the author is successfully deleted, send a success response
+        res.json('Successfully deleted author');
+    } catch (error) {
+        // If an error occurs, check if it's because the author was not found
+        if (error.code === 'P2025') {
+            res.status(404).send('Author not found!');
         } else {
-            let authors = JSON.parse(data)
-            // console.log(authors)
-            const authorIndex = authors.findIndex(a => a.id == id) // the author to be deleted
-            console.log(authors[authorIndex])
-            if (authorIndex !== -1) {
-                const newAuthors = authors.filter(a => a.id != id)
-                console.log(newAuthors)
-                
-                // write data to the file
-                fs.writeFile('./Models/authors.json', JSON.stringify(newAuthors, null, 2), (err) => {
-                    if (err) {
-                        res.send('Failed to update authors')
-                    } else {
-                        res.json('Successfully deleted author')
-                    }
-                })
-                // console.log(authors)
-            } else {
-                res.send('Authors not found!')
-            }
-
+            // For other errors, send a generic failure response
+            res.status(500).send('Failed to delete author');
         }
-    })
+    }
 
-}
+};
 
 

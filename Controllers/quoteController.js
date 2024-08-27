@@ -66,33 +66,36 @@ export const getQuoteById = async (req, res) => {
 
 
 // update the existing quote by id 
-export const UpdateQuoteById = (req, res) => {
-    const { id } = req.params;
-
-    readFile('./Models/quotes.json', 'utf-8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Failed to get data');
-        }
-
-        let quotes = JSON.parse(data);
-        console.log(quotes)
-        const quoteIndex = quotes.findIndex(q => q.id == id);
-        console.log(quoteIndex)
-        if (quoteIndex >= 0) {
-            // Merge existing quote data with the new data from req.body
-            let changedQuote = { ...quotes[quoteIndex], ...req.body };
-            console.log(changedQuote)
-            writeFileSync('./Models/quotes.json', JSON.stringify(quotes, null, 2), (err) => {
-                if (err) {
-                    return res.status(500).send('Failed to update quotes');
-                }
-
-                res.send("updated"); // Return the updated quote
-            });
+export const UpdateQuoteById = async (req, res) => {
+    const { id } = req.params; // extract the quote id
+    // validate id
+    if (isNaN(Number(id))) {
+        return res.status(400).send('Invalid quote ID.');
+    };
+    try {
+        // update the quote in the database using Prisma
+        const updateQuote = await prisma.quote.update({
+            where: {
+                id: Number(id), //Convert id to a number if it's not already (Prisma requires the correct type)
+            },
+            data: {
+                ...req.body, // spread the request body to update only the fields provided
+            },
+        });
+        // if successful, return the updated author
+        res.json(updateQuote);
+    } catch (error) {
+        console.error(error); //log the full error
+        // Check if the error is due to the quote not being found
+        if (error.code === 'P2025') { // P2025 is the Prisma error code for 'Record to update not found.'
+            res.status(404).send('Quote not found!');
         } else {
-            res.status(404).json({ message: 'Quote not found!' });
-        }
-    });
+            // Handle other errors, such as database connection issues
+            res.status(500).send('Failed to update quote');
+        } 
+    }
+
+   
 };
 
 
