@@ -20,25 +20,31 @@ export const getallQuotes = async (req, res)=>{
     }
 }
 
-export const createNewQuote = (req, res)=>{
+export const createNewQuote = async (req, res) => {
+    // extract 'quote' and 'category' directly from the req body
+    let { quote, category, authorId  } = req.body;
 
-    let newQuote = req.body
+    try {
+        // creating a new quote with the extracted data
+        const newQuote = await prisma.quote.create({
+            data: {
+                quote: quote,  //use the actual quote data
+                category: category,
+                authorId: authorId
+            }
+        });
+        
+        // sending a response with the newly created quote data
+        res.status(StatusCodes.OK).json({
+            quote: newQuote,
+        });
+    } catch (err) {
+        // sending an error response in case of an exception
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(err.message);
+    }   
 
-    // first get the content
-    readFile('./Models/quotes.json', "utf8", (err, data)=>{
-        if(err){
-            res.send("Failed to read data ....")
-        } else {
-            writeFile('./Models/quotes.json', JSON.stringify([...JSON.parse(data), newQuote], null, 2), (err)=>{
-                if (err){
-                        res.send("Failed to add new quote")
-                } else {
-                        res.send("Quote added succesfully")
-                }
-            })
-        }
-    })
-}
+   
+};
 
 // get specific quote by id
 export const getQuoteById = async (req, res) => {

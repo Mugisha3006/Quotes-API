@@ -101,3 +101,6 @@
 ::1 - - [27/Aug/2024:05:00:45 +0000] "GET /authors HTTP/1.1" 200 1748 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 ::1 - - [27/Aug/2024:05:00:56 +0000] "GET /authors HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 ::1 - - [27/Aug/2024:05:04:04 +0000] "POST /authors HTTP/1.1" 200 68 "-" "PostmanRuntime/7.41.2"
+::1 - - [27/Aug/2024:05:26:22 +0000] "GET /quotes HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+::1 - - [27/Aug/2024:05:29:15 +0000] "POST /quotes HTTP/1.1" 500 100 "-" "PostmanRuntime/7.41.2"
+::1 - - [27/Aug/2024:05:36:16 +0000] "POST /quotes HTTP/1.1" 200 113 "-" "PostmanRuntime/7.41.2"

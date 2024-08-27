@@ -33,8 +33,6 @@ export const createNewAuthor = async (req, res) => {
             }
         });
 
-        console.log(newAuthor);
-
         // Sending a response with the newly created author data
         res.status(StatusCodes.OK).json({
             author: newAuthor,
