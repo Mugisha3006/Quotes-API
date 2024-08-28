@@ -10,8 +10,6 @@ export const getallQuotes = async (req, res)=>{
     try {
         const allQuotes = await prisma.quote.findMany();
 
-        console.log(allQuotes)
-
         res.status(StatusCodes.OK).json({
             quotes: allQuotes,
         });
@@ -99,38 +97,32 @@ export const UpdateQuoteById = async (req, res) => {
 };
 
 
-// delete author by id 
-export const deleteQuoteById = (req, res) => {
-    // refer to an id query
-    const { id } = req.params
-    // read file
-    readFile('./Models/quotes.json', 'utf-8', (err, data) => {
+// delete qoute by id 
+export const deleteQuoteById = async (req, res) => {
+    // extract id from the req params
+    let { id } = req.params
+    try {
+        // Convert the id to a number, if necessary (assuming id is stored as an integer)
+        let quoteId = parseInt(id, 10);
+        console.log(quoteId)
 
-        if (err) {
-            res.send('Failed to get data')
+        // Delete the quote from the database using Prisma
+        const deletedQuote = await prisma.quote.delete({
+            where: {
+                id: quoteId,
+            },
+        });
+
+        // If the quote is successfully deleted, send a success response
+        res.json('Successfully deleted quote');
+    } catch (error) {
+        // If an error occurs, check if it's because the author was not found
+        if (error.code === 'P2025') {
+            res.status(404).send('Quote not found!');
         } else {
-            let quotes = JSON.parse(data)
-            console.log(quotes)
-            const quoteIndex = quotes.findIndex(a => a.id == id) // the author to be deleted
-            console.log(quotes[quoteIndex])
-            if (quoteIndex !== -1) {
-                const newquotes = quotes.filter(a => a.id != id)
-                console.log(newquotes)
-
-                // write data to the file
-                writeFileSync('./Models/quotes.json', JSON.stringify(newquotes, null, 2), (err) => {
-                    if (err) {
-                        res.send('Failed to update quotes')
-                    } else {
-                        res.send('Successfully deleted author')
-                    }
-                })
-                // console.log(quotes)
-            } else {
-                res.send('quotes not found!')
-            }
-
+            // For other errors, send a generic failure response
+            res.status(500).send('Failed to delete quote');
         }
-    })
+    }
 
-}
+};
