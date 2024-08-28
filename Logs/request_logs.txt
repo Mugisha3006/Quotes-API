@@ -192,3 +192,6 @@
 ::1 - - [28/Aug/2024:22:56:02 +0000] "DELETE /quotes/1 HTTP/1.1" 500 22 "-" "PostmanRuntime/7.41.2"
 ::1 - - [28/Aug/2024:22:57:32 +0000] "DELETE /quotes/3 HTTP/1.1" 404 16 "-" "PostmanRuntime/7.41.2"
 ::1 - - [28/Aug/2024:22:59:23 +0000] "DELETE /quotes/1 HTTP/1.1" 500 22 "-" "PostmanRuntime/7.41.2"
+::1 - - [28/Aug/2024:23:14:43 +0000] "GET /quotes HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+::1 - - [28/Aug/2024:23:15:09 +0000] "DELETE /quotes/5 HTTP/1.1" 200 28 "-" "PostmanRuntime/7.41.2"
+::1 - - [28/Aug/2024:23:15:18 +0000] "GET /quotes HTTP/1.1" 200 348 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"

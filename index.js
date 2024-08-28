@@ -2,6 +2,7 @@ import express, { json } from 'express';
 import fs from 'node:fs';
 import morgan from 'morgan';
 import path from 'path';
+import cors from 'cors';
 import authorRouter from './Routes/authorsRouter.js';
 import quoteRouter from './Routes/quotesRouter.js';
 
@@ -12,7 +13,10 @@ const dirname = path.resolve()
 let accessLogStream = fs.createWriteStream(path.join(dirname, 'Logs/request_logs.txt'), {flags:'a'})
 
 // setup the logger
-app.use(morgan('combined', {stream: accessLogStream}))
+app.use(morgan('combined', { stream: accessLogStream }))
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Middleware
 app.use(morgan('dev'));

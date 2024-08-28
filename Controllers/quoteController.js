@@ -104,8 +104,7 @@ export const deleteQuoteById = async (req, res) => {
     try {
         // Convert the id to a number, if necessary (assuming id is stored as an integer)
         let quoteId = parseInt(id, 10);
-        console.log(quoteId)
-
+    
         // Delete the quote from the database using Prisma
         const deletedQuote = await prisma.quote.delete({
             where: {
