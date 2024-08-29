@@ -65,32 +65,35 @@ export const getAuthorById = async (req, res) => {
 export const updateAuthorById = async (req, res) => {
     const { id } = req.params; // Extract the author ID from request parameters
 
-    // validate the Id
+    // Validate the ID
     if (isNaN(Number(id))) {
         return res.status(400).send('Invalid author ID.');
-    };
+    }
+
+    // Remove any fields from req.body that shouldn't be updated
+    const { id: requestBodyId, ...updateData } = req.body;
 
     try {
         // Update the author in the database using Prisma
         const updatedAuthor = await prisma.author.update({
             where: {
-                id: Number(id), // Convert id to a number if it's not already (Prisma requires the correct type)
+                id: Number(id), // Convert ID to a number if it's not already
             },
-            data: {
-                ...req.body, // Spread the request body to update only the fields provided
-            },
+            data: updateData, // Only update the fields provided in the request body
         });
 
         // If successful, return the updated author
         res.json(updatedAuthor);
     } catch (err) {
-        console.error(err); //log the full error 
-        
+        console.error('Update Error:', err); // Log the full error
+
         // Check if the error is due to the author not being found
-        if (err.code === 'P2025') { // P2025 is the Prisma error code for 'Record to update not found.'
+        if (err.code === 'P2025') {
             res.status(404).send('Author not found!');
+        } else if (err.code === 'P2002') { // Unique constraint violation
+            res.status(409).send('Duplicate field value found.');
         } else {
-            // Handle other errors, such as database connection issues
+            // Handle other errors
             res.status(500).send('Failed to update author');
         }
     }
