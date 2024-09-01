@@ -14,15 +14,17 @@ datasource db {
 }
 
 model Author {
-  id      Int     @id @default(autoincrement())
-  author  String  @unique
-  picture String
-  quotes  Quote[]
+  id       Int     @id @default(autoincrement())
+  authorName   String
+  email    String @unique
+  password String
+  imageUrl  String //change this to accept a url 
+  quotes   Quote[]
 }
 
 model Quote {
   id       Int     @id @default(autoincrement())
-  quote    String
+  quoteName    String
   category String
   authorId Int
   author   Author? @relation(fields: [authorId], references: [id])

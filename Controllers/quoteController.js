@@ -1,4 +1,3 @@
-import { readFile, writeFile, writeFileSync, readFileSync } from 'node:fs'
 import { PrismaClient } from '@prisma/client'
 import { StatusCodes } from 'http-status-codes';
 
@@ -6,7 +5,7 @@ import { StatusCodes } from 'http-status-codes';
 const prisma = new PrismaClient();
 
 // get all quotes
-export const getallQuotes = async (req, res)=>{
+const getallQuotes = async (req, res)=>{
     try {
         const allQuotes = await prisma.quote.findMany();
 
@@ -18,7 +17,8 @@ export const getallQuotes = async (req, res)=>{
     }
 }
 
-export const createNewQuote = async (req, res) => {
+// create a quote
+const createNewQuote = async (req, res) => {
     // extract 'quote' and 'category' directly from the req body
     let { quote, category, authorId  } = req.body;
 
@@ -45,7 +45,7 @@ export const createNewQuote = async (req, res) => {
 };
 
 // get specific quote by id
-export const getQuoteById = async (req, res) => {
+const getQuoteById = async (req, res) => {
     const quoteIndex = parseInt(req.params.id, 10);
     try {
         const quoteId = await prisma.quote.findUnique({
@@ -62,43 +62,32 @@ export const getQuoteById = async (req, res) => {
     }
 };
 
-
-// update the existing quote by id 
-export const UpdateQuoteById = async (req, res) => {
-    const { id } = req.params; // extract the quote id
-    // validate id
-    if (isNaN(Number(id))) {
-        return res.status(400).send('Invalid quote ID.');
-    };
+// update a quote 
+const UpdateQuoteById = async (req, res) => {
     try {
-        // update the quote in the database using Prisma
-        const updateQuote = await prisma.quote.update({
+        const id = +req.params.id;
+        const updatedQuote = await prisma.quote.update({
             where: {
-                id: Number(id), //Convert id to a number if it's not already (Prisma requires the correct type)
+                id
             },
             data: {
-                ...req.body, // spread the request body to update only the fields provided
-            },
+                ...req.body,
+                authorId: +req.body.authorId
+            }
         });
-        // if successful, return the updated author
-        res.json(updateQuote);
-    } catch (error) {
-        console.error(error); //log the full error
-        // Check if the error is due to the quote not being found
-        if (error.code === 'P2025') { // P2025 is the Prisma error code for 'Record to update not found.'
-            res.status(404).send('Quote not found!');
-        } else {
-            // Handle other errors, such as database connection issues
-            res.status(500).send('Failed to update quote');
-        } 
-    }
-
-   
+        res
+            .status(StatusCodes.CREATED)
+            .json({ message: "Quote updated", quote: updatedQuote });
+    } catch (err) {
+        res
+            .status(StatusCodes.BAD_REQUEST)
+            .json({message:"Quote not updated", err})
+   }
 };
 
 
-// delete qoute by id 
-export const deleteQuoteById = async (req, res) => {
+// delete quote by id 
+const deleteQuoteById = async (req, res) => {
     // extract id from the req params
     let { id } = req.params
     try {
@@ -117,11 +106,13 @@ export const deleteQuoteById = async (req, res) => {
     } catch (error) {
         // If an error occurs, check if it's because the author was not found
         if (error.code === 'P2025') {
-            res.status(404).send('Quote not found!');
+            res.status(StatusCodes.BAD_REQUEST).send('Quote not found!');
         } else {
             // For other errors, send a generic failure response
-            res.status(500).send('Failed to delete quote');
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Failed to delete quote');
         }
     }
 
 };
+
+export { getallQuotes, createNewQuote, getQuoteById, UpdateQuoteById, deleteQuoteById }

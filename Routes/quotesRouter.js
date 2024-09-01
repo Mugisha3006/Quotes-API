@@ -13,6 +13,9 @@ router.post('/', createNewQuote)
 // get quote by id
 router.get('/:id', getQuoteById)
 
+//patch
+router.patch("/:id", UpdateQuoteById)
+
 // delete existing quote by id
 router.delete('/:id', deleteQuoteById)
 

@@ -15,7 +15,7 @@ router.post('/', createNewAuthor)
 router.get('/:id', getAuthorById)
 
 // update author by id 
-router.put('/:id', updateAuthorById)
+router.patch('/:id', updateAuthorById)
 
 // delete author by id 
 router.delete('/:id', deleteAuthorById)

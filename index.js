@@ -16,7 +16,11 @@ let accessLogStream = fs.createWriteStream(path.join(dirname, 'Logs/request_logs
 app.use(morgan('combined', { stream: accessLogStream }))
 
 // Enable CORS for all routes
-app.use(cors());
+app.use(cors({
+    origin: '*', //wildcard is not for production
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true
+}));
 
 // Middleware
 app.use(morgan('dev'));
