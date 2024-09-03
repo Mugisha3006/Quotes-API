@@ -19,14 +19,15 @@ const getallAuthors = async (req, res) => {
 // create new Author
 const createNewAuthor = async (req, res) => {
     // Extracting 'author' and 'picture' directly from req.body
-    const { author, picture } = req.body;
+    const { authorName, email, password } = req.body;
 
     try {
         // Creating a new author with the extracted data
         const newAuthor = await prisma.author.create({
             data: {
-                author: author, // Use the actual author data
-                picture: picture || "Author Image" // Default to "Author Image" if picture is not provided
+                authorName, // Use the actual author data
+                email,
+                password
             }
         });
 
