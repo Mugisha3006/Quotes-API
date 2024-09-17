@@ -1,9 +1,11 @@
 import Joi from "joi";
 import { StatusCodes } from "http-status-codes";
+
 const authorSchema = Joi.object({
     authorName: Joi.string().min(4).max(16).required(),
     email: Joi.string().email().required(),
-    password: Joi.string().alphanum().min(4).max(10).required()
+    password: Joi.string().alphanum().min(4).max(10).required(),
+    imageUrl: Joi.string()
 });
 
 const validate = (schema) => {

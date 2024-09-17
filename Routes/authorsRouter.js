@@ -1,16 +1,20 @@
 import { Router } from 'express';
-import { getallAuthors, createNewAuthor, getAuthorById, updateAuthorById, deleteAuthorById } from '../Controllers/authorController.js';
-import {authorSchema, validate} from "../Utils/data-validator.js"
+import { getallAuthors, createNewAuthor, loginAuthor, getAuthorById, updateAuthorById, deleteAuthorById } from '../Controllers/authorController.js';
+import { authorSchema, validate } from "../Utils/data-validator.js";
+import { verifyToken } from '../Utils/token-handler.js';
+
 const router = Router()
 
-router.get('/', getallAuthors)
+router.get('/', verifyToken, getallAuthors)
 
-router.post('/', validate(authorSchema), createNewAuthor)
+router.post('/register', validate(authorSchema), createNewAuthor)
 
-router.get('/:id', getAuthorById)
+router.post('/login', loginAuthor)
 
-router.patch('/:id', updateAuthorById)
+router.get('/:id', verifyToken, getAuthorById)
 
-router.delete('/:id', deleteAuthorById)
+router.patch('/:id', verifyToken, updateAuthorById)
 
-export default router
+router.delete('/:id', verifyToken, deleteAuthorById)
+
+export default router;
