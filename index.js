@@ -1,42 +1,12 @@
-import express, { json } from 'express';
-import fs from 'node:fs';
-import morgan from 'morgan';
-import path from 'path';
-import cors from 'cors';
-import authorRouter from './Routes/authorsRouter.js';
-import quoteRouter from './Routes/quotesRouter.js';
-
-const app = express()
-const dirname = path.resolve()
-
-// create a write stream (in append mode)
-let accessLogStream = fs.createWriteStream(path.join(dirname, 'Logs/request_logs.txt'), {flags:'a'})
-
-// setup the logger
-app.use(morgan('combined', { stream: accessLogStream }))
-
-// Enable CORS for all routes
-app.use(cors({
-    origin: '*', //wildcard is not for production
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true
-}));
-
-// Middleware
-app.use(morgan('dev'));
-app.use(json())
+import app from "./server.js";
 
 
-// Router Middleware
-app.use('/api/V1/authors', authorRouter)
-app.use('/api/V1/quotes', quoteRouter)
+const PORT = process.env.PORT || 3000;
 
-app.get('/api/V1/', (req, res) => {
-    res.send("<h1 style='color:blue'>Welcome to this Server</h1>")
-})
-
-
-let PORT = 3000
+// Define a route for the root URL
+app.get('/', (req, res) => {
+    res.send('Welcome to this API!');
+});
 
 app.listen(PORT, () => {
     console.log(`Server is listening on http://localhost:${PORT}`)
