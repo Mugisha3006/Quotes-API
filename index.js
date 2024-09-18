@@ -28,10 +28,10 @@ app.use(json())
 
 
 // Router Middleware
-app.use('/authors', authorRouter)
-app.use('/quotes', quoteRouter)
+app.use('/api/V1/authors', authorRouter)
+app.use('/api/V1/quotes', quoteRouter)
 
-app.get('/', (req, res) => {
+app.get('/api/V1/', (req, res) => {
     res.send("<h1 style='color:blue'>Welcome to this Server</h1>")
 })
 
