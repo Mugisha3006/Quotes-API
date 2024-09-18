@@ -28,3 +28,7 @@ Follow these steps to get the API running on your local machine:
    ```bash
    git clone https://github.com/Mugisha3006/Quotes-API.git
    cd Quotes-API
+
+2. ## API Postman Documentation
+   
+   URL: https://documenter.getpostman.com/view/34984864/2sAXqqdP7X
