@@ -28,7 +28,7 @@ const createNewAuthor = async (req, res) => {
         });
 
         if (existingAuthor) {
-            return res.status(StatusCodes.NOT_ACCEPTABLE).json({ message: "Author with this email already exists" });
+            return res.status(StatusCodes.NOT_ACCEPTABLE).json({ message: "Author with email already exists" });
         }
 
         // Hash the password
@@ -44,7 +44,7 @@ const createNewAuthor = async (req, res) => {
 
         // Return success response
         res.status(StatusCodes.CREATED).json({
-            message: "Author registered successfully",
+            message: "Author registered Successfully",
             author: { id: newAuthor.id, email: newAuthor.email, authorName: newAuthor.name },
         });
     } catch (err) {
