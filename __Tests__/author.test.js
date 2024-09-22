@@ -50,3 +50,65 @@ describe("Register author", () => {
         expect(result.body.message).toBe("Author with email already exists");
     });
 });
+
+describe("Author Login", () => {
+    it("empty field", async () => {
+        const response = await request(app).post("/api/V1/authors//login").send({});
+
+        expect(response.status).toBe(StatusCodes.NOT_FOUND);
+        expect(response.body.message).toBe("Provide email and password");
+    });
+
+    it("should return token and 201", async () => {
+        const response = await request(app)
+            .post("/api/V1/authors//login")
+            .send({ email: "araphat@email.com", password: "yasser123" });
+
+        expect(response.status).toBe(StatusCodes.CREATED);
+        expect(response.body.message).toBe("Author LoggedIn");
+        expect(response.body.token).toBeDefined();
+        token = response.body.token;
+    });
+});
+
+describe("get all authors", () => {
+    it("will return all authors", async () => {
+        const response = await request(app)
+            .get("/api/V1/authors/")
+            .set("Authorization", `Bearer ${token}`);
+
+        expect(response.status).toBe(StatusCodes.OK);
+        expect(response.body.authors).toEqual(
+            expect.arrayContaining([
+                {
+                    id: expect.any(Number),
+                    authorName: expect.any(String),
+                    email: expect.any(String),
+                    password: expect.any(String),
+                    imageUrl: expect.any(String),
+                },
+            ])
+        );
+    });
+});
+
+describe("get author by id", () => {
+    it("will return author", async () => {
+        //we need to get an author from db to provide an id
+        const author = await prisma.author.findFirst();
+        const response = await request(app)
+            .get(`/api/V1/authors/${author.id}`)
+            .set("Authorization", `Bearer ${token}`);
+
+        expect(response.status).toBe(StatusCodes.OK);
+        expect(response.body.author).toBeDefined();
+    });
+
+    it("return 404 if id does not exit", async () => {
+        const response = await request(app)
+            .get("/api/V1/authors/871")
+            .set("Authorization", `Bearer ${token}`);
+
+        expect(response.status).toBe(StatusCodes.NOT_FOUND);
+    });
+});

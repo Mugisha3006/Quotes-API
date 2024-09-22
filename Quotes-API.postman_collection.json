@@ -1,0 +1,2406 @@
+{
+	"info": {
+		"_postman_id": "b63c16ab-146b-44bb-965f-37baf11aba15",
+		"name": "Quotes-API",
+		"description": "This API allows you to manage a collection of quotes and authors. You can create, read, update, and delete quotes and authors through a RESTful interface.\n\n**API Version**: V1.0.0\n\n**Base URL**:[http://localhost:3000](http://localhost:3000)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34984864"
+	},
+	"item": [
+		{
+			"name": "Create newAuthor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"authorName\": \"Yasser Araphat\",\r\n\"email\": \"araphat@email.com\",\r\n\"password\": \"yasser123\",\r\n\"imageUrl\":\"authors image\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/V1/authors/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"V1",
+						"authors",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create newAuthor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": \"4\",\r\n    \"author\": \"Confucius \"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "24"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"18-iONkA5BfmRq79AUhAuqYYhXgE44\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Aug 2024 10:50:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Author added succesfully"
+				},
+				{
+					"name": "Create newAuthor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": \"7\",\r\n    \"author\": \"Kevin Keagan\",\r\n    \"picture\":\"\"\r\n    \r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"44-yFCoVSG/JEnRYYNB2cvpYvVP7y4\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 05:04:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"author\": {\n        \"id\": 9,\n        \"author\": \"Kevin Keagan\",\n        \"picture\": \"Author Image\"\n    }\n}"
+				},
+				{
+					"name": "Create newAuthor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"authorName\": \"Kevin Reynold\",\r\n\"email\": \"kevin@email.com\",\r\n\"password\": \"12345\",\r\n\"imageUrl\":\"authors image\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "88"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"58-Kax0E6RTnj2241wrUWM3ZPpwG2w\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 14 Sep 2024 11:14:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Author registered successfully\",\n    \"author\": {\n        \"id\": 6,\n        \"email\": \"kevin@email.com\"\n    }\n}"
+				},
+				{
+					"name": "Create newAuthor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"authorName\": \"Ken Block\",\r\n\"email\": \"ken@email.com\",\r\n\"password\": \"ken123\",\r\n\"imageUrl\":\"authors image\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "86"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"56-hrzeaIHNFNUskQkd1m4YN4Hy7VA\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 17 Sep 2024 07:39:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Author registered successfully\",\n    \"author\": {\n        \"id\": 7,\n        \"email\": \"ken@email.com\"\n    }\n}"
+				},
+				{
+					"name": "Create newAuthor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"authorName\": \"Yasser Araphat\",\r\n\"email\": \"araphat@email.com\",\r\n\"password\": \"yasser123\",\r\n\"imageUrl\":\"authors image\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/V1/authors/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"V1",
+								"authors",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "90"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5a-x72gvDFktgiIry9FraQ70+rHWo4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Sep 2024 06:49:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Author registered successfully\",\n    \"author\": {\n        \"id\": 8,\n        \"email\": \"araphat@email.com\"\n    }\n}"
+				},
+				{
+					"name": "Create newAuthor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"authorName\": \"Yasser Araphat\",\r\n\"email\": \"araphat@email.com\",\r\n\"password\": \"yasser123\",\r\n\"imageUrl\":\"authors image\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/V1/authors/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"V1",
+								"authors",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "90"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5a-x72gvDFktgiIry9FraQ70+rHWo4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Sep 2024 06:49:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Author registered successfully\",\n    \"author\": {\n        \"id\": 8,\n        \"email\": \"araphat@email.com\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create newQuote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 4,\r\n    \"quote\": \"Be yourself; everyone else is already taken!\",\r\n    \"category\":\"Inspirational\",\r\n    \"authorId\":4\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/quotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quotes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"3\",\r\n    \"quote\": \"Talent mixed with hardwork leads to success in anything you do.\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/quotes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"quotes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "24"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"18-iONkA5BfmRq79AUhAuqYYhXgE44\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 12 Aug 2024 07:37:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Author added succesfully"
+				},
+				{
+					"name": "Create newQuote",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"4\",\r\n    \"quote\": \"It is better to light a single candle than to curse the darkness.\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/quotes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quotes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "24"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"18-iONkA5BfmRq79AUhAuqYYhXgE44\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Aug 2024 10:51:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Author added succesfully"
+				},
+				{
+					"name": "Create newQuote",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"quote\": \"Be yourself; everyone else is already taken!\",\r\n    \"category\":\"Inspirational\",\r\n    \"authorId\":4\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/quotes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quotes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "113"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"71-pvkB8gr0rUDzydKJ5W0awcs/JxI\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 05:36:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"quote\": {\n        \"id\": 5,\n        \"quote\": \"Be yourself; everyone else is already taken!\",\n        \"category\": \"Inspirational\",\n        \"authorId\": 4\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "update Author",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\": 8,\r\n\"author\": \"kevin keegan\",\r\n\"picture\": \"Author Image\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/authors/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"authors",
+						"8"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update author by id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": 2,\r\n    \"author\": \"Tom Cruise\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1e-8ubeeYuJ5aqMZtDCtDx46V9pVac\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Aug 2024 17:05:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"author\": \"Tom Cruise\"\n}"
+				},
+				{
+					"name": "update author by id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": 7,\r\n\"author\": \"Kobe Bryant\",\r\n\"picture\": \"Author Image\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"8"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"38-mTy9teRZjMyLiunpvIdBn7q3tAE\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 06:33:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 7,\n    \"author\": \"Kobe Bryant\",\n    \"picture\": \"Author Image\"\n}"
+				},
+				{
+					"name": "update author by id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": 8,\r\n\"author\": \"Kevin Keagan\",\r\n\"picture\": \"Author Image\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"9"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"39-L4iFeEvL0hWovNdM25EnS0xGL8c\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 06:34:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 8,\n    \"author\": \"Kevin Keagan\",\n    \"picture\": \"Author Image\"\n}"
+				},
+				{
+					"name": "update author by id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": 8,\r\n\"author\": \"kevin keegan\",\r\n\"picture\": \"Author Image\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"8"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"39-ggxNbfhueeH6pb2d2aumftHGC0E\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 29 Aug 2024 00:28:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 8,\n    \"author\": \"kevin keegan\",\n    \"picture\": \"Author Image\"\n}"
+				},
+				{
+					"name": "update Author",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": 4,\r\n\"authorName\": \"Robert Froster\",\r\n\"email\": \"robertfro@email.com\",\r\n\"password\": \"\",\r\n\"imageUrl\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"4"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"86-js7tLYRH82CqcSZ6fBlnhrTYm/4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 31 Aug 2024 23:10:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Author updated\",\n    \"author\": {\n        \"id\": 4,\n        \"authorName\": \"Robert Froster\",\n        \"email\": \"robertfro@email.com\",\n        \"password\": \"\",\n        \"imageUrl\": \"\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get author by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/authors/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"authors",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete author by id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "30"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1e-8ubeeYuJ5aqMZtDCtDx46V9pVac\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Aug 2024 10:47:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"author\": \"Tom Cruise\"\n}"
+				},
+				{
+					"name": "get author by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-t0EpDplka3FPbu9UkbR1VssZ8Uk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 23:30:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"author\": {\n        \"id\": 2,\n        \"author\": \"Socrates\",\n        \"picture\": \"\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "delete author by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/authors/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"authors",
+						"6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/authors/4",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d-EbPoGE7AzVsRkzbS0T2OYCHM0xw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Aug 2024 11:03:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "\"Successfully deleted author\""
+				},
+				{
+					"name": "http://localhost:3000/authors/4",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d-EbPoGE7AzVsRkzbS0T2OYCHM0xw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 22:49:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "\"Successfully deleted author\""
+				}
+			]
+		},
+		{
+			"name": "get quote by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/quotes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quotes",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/quotes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quotes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "481"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1e1-2zZc7u/VtzGgR8k9Uhh+hCeyS2A\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 17 Aug 2024 12:50:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"1\",\n        \"quote\": \"In this life, it’s not what you hope for, it’s not what you deserve  it’s what you take!\"\n    },\n    {\n        \"id\": \"2\",\n        \"quote\": \"The greatest glory in living lies not in never falling, but in rising every time we fall.\"\n    },\n    {\n        \"id\": \"3\",\n        \"quote\": \"Talent mixed with hardwork leads to success in anything you do.\"\n    },\n    {\n        \"id\": \"4\",\n        \"quote\": \"It is better to light a single candle than to curse the darkness.\"\n    },\n    {\n        \"id\": \"5\",\n        \"quote\": \"Life is what happens when you’re busy making other plans.\"\n    }\n]"
+				},
+				{
+					"name": "get quote by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/quotes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quotes",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "131"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"83-FwObicE7h/sEUrUoL7AZACrnPRI\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Aug 2024 06:51:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"quote\": {\n        \"id\": 1,\n        \"quote\": \"I always look for a challenge and something that’s different.\",\n        \"category\": \"Motivational\",\n        \"authorId\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GetAllQuotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/quotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quotes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/quotes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quotes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "481"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1e1-2zZc7u/VtzGgR8k9Uhh+hCeyS2A\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 22 Aug 2024 12:48:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"1\",\n        \"quote\": \"In this life, it’s not what you hope for, it’s not what you deserve  it’s what you take!\"\n    },\n    {\n        \"id\": \"2\",\n        \"quote\": \"The greatest glory in living lies not in never falling, but in rising every time we fall.\"\n    },\n    {\n        \"id\": \"3\",\n        \"quote\": \"Talent mixed with hardwork leads to success in anything you do.\"\n    },\n    {\n        \"id\": \"4\",\n        \"quote\": \"It is better to light a single candle than to curse the darkness.\"\n    },\n    {\n        \"id\": \"5\",\n        \"quote\": \"Life is what happens when you’re busy making other plans.\"\n    }\n]"
+				},
+				{
+					"name": "GetAllQuotes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/quotes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quotes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "348"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15c-dn9VpBEdw0Q2juufYNU9WaNELJs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 22:58:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"quotes\": [\n        {\n            \"id\": 1,\n            \"quote\": \"I always look for a challenge and something that’s different.\",\n            \"category\": \"Motivational\",\n            \"authorId\": 1\n        },\n        {\n            \"id\": 3,\n            \"quote\": \"Ethier you run the day or the day runs you\",\n            \"category\": \"Motivational \",\n            \"authorId\": 4\n        },\n        {\n            \"id\": 2,\n            \"quote\": \"The only true wisdom is in knowing you know nothing\",\n            \"category\": \"Inspirational \",\n            \"authorId\": 2\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "update quote by id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "update quote by id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": 3,\r\n\"author\": \"\",\r\n\"picture\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d-EbPoGE7AzVsRkzbS0T2OYCHM0xw\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 11:16:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "\"Successfully deleted author\""
+				}
+			]
+		},
+		{
+			"name": "deleteQuote",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getAllAuthors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/authors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"authors"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getAllAuthors",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "175"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"af-hgf9r8QLRJW9ZjhP2N5EWR7AhO0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 22:43:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"authors\": [\n        {\n            \"id\": 1,\n            \"author\": \"Tom Cruise\",\n            \"picture\": \"\"\n        },\n        {\n            \"id\": 2,\n            \"author\": \"Socrates\",\n            \"picture\": \"\"\n        },\n        {\n            \"id\": 3,\n            \"author\": \"\",\n            \"picture\": \"\"\n        },\n        {\n            \"id\": 4,\n            \"author\": \"Jim Rohn\",\n            \"picture\": \"\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "getAllAuthors",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "481"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1e1-DbGequxI8c9YYPfumqEVW00kc6c\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 31 Aug 2024 23:07:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"authors\": [\n        {\n            \"id\": 1,\n            \"authorName\": \"Oscar Wilde\",\n            \"email\": \"oscarwild@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 2,\n            \"authorName\": \"Mae West\",\n            \"email\": \"maewest@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 3,\n            \"authorName\": \"Mahatma Gandhi\",\n            \"email\": \"magandhi@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 4,\n            \"authorName\": \"Robert Frost\",\n            \"email\": \"robertfro@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 5,\n            \"authorName\": \"Andre Gide\",\n            \"email\": \"andreagide@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "getAllAuthors",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "812"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"32c-BGjrQUnrPoBUKJYnkFXWhrSixqQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 17 Sep 2024 07:43:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"authors\": [\n        {\n            \"id\": 1,\n            \"authorName\": \"Oscar Wilde\",\n            \"email\": \"oscarwild@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 2,\n            \"authorName\": \"Mae West\",\n            \"email\": \"maewest@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 3,\n            \"authorName\": \"Mahatma Gandhi\",\n            \"email\": \"magandhi@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 5,\n            \"authorName\": \"Andre Gide\",\n            \"email\": \"andreagide@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 4,\n            \"authorName\": \"Robert Froster\",\n            \"email\": \"robertfro@email.com\",\n            \"password\": \"12345\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 6,\n            \"authorName\": \"Kevin Reynold\",\n            \"email\": \"kevin@email.com\",\n            \"password\": \"$2b$12$NIFbSMYtzYYqOvflCt.aIumQ5eiPxnrWkT2jOIakIi9qXaMHrRsxW\",\n            \"imageUrl\": \"authors image\"\n        },\n        {\n            \"id\": 7,\n            \"authorName\": \"Ken Block\",\n            \"email\": \"ken@email.com\",\n            \"password\": \"$2b$12$S9Av2iCmRdo1gCoj337YMecDy3zm1JMA/inUdMw2WBJ/FFPVKwzF2\",\n            \"imageUrl\": \"authors image\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "getAllAuthors",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/V1/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"V1",
+								"authors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "980"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3d4-Xf332t4+KEKWiCtKXhOSG33jHtM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Sep 2024 06:56:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"authors\": [\n        {\n            \"id\": 1,\n            \"authorName\": \"Oscar Wilde\",\n            \"email\": \"oscarwild@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 2,\n            \"authorName\": \"Mae West\",\n            \"email\": \"maewest@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 3,\n            \"authorName\": \"Mahatma Gandhi\",\n            \"email\": \"magandhi@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 5,\n            \"authorName\": \"Andre Gide\",\n            \"email\": \"andreagide@email.com\",\n            \"password\": \"\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 4,\n            \"authorName\": \"Robert Froster\",\n            \"email\": \"robertfro@email.com\",\n            \"password\": \"12345\",\n            \"imageUrl\": \"\"\n        },\n        {\n            \"id\": 6,\n            \"authorName\": \"Kevin Reynold\",\n            \"email\": \"kevin@email.com\",\n            \"password\": \"$2b$12$NIFbSMYtzYYqOvflCt.aIumQ5eiPxnrWkT2jOIakIi9qXaMHrRsxW\",\n            \"imageUrl\": \"authors image\"\n        },\n        {\n            \"id\": 7,\n            \"authorName\": \"Ken Block\",\n            \"email\": \"ken@email.com\",\n            \"password\": \"$2b$12$S9Av2iCmRdo1gCoj337YMecDy3zm1JMA/inUdMw2WBJ/FFPVKwzF2\",\n            \"imageUrl\": \"authors image\"\n        },\n        {\n            \"id\": 8,\n            \"authorName\": \"Yasser Araphat\",\n            \"email\": \"araphat@email.com\",\n            \"password\": \"$2b$12$MRadJB1OJWPxcfuof4gMtObohQvlXvozD2d3sPR6Bb.6AIuUMuCba\",\n            \"imageUrl\": \"authors image\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/authors/4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/authors/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"authors",
+						"4"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/authors/4",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-Kf92Xf7BLhT1xnzqxhsSiGGjyM0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 23:39:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"author\": {\n        \"id\": 4,\n        \"author\": \"Jim Rohn\",\n        \"picture\": \"\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "delete quote by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\": 5,\r\n\"quote\": \"Be yourself; everyone else is already taken!\",\r\n\"category\": \"Inspirational\",\r\n\"authorId\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/quotes/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quotes",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": 5,\r\n\"quote\": \"Be yourself; everyone else is already taken!\",\r\n\"category\": \"Inspirational\",\r\n\"authorId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/quotes/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quotes",
+								"5"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10-/mVOSSNDN9rGxJD2Hc9zaZYr03g\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 11:35:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Quote not found!"
+				}
+			]
+		},
+		{
+			"name": "update quote",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": 1,\r\n\"quoteName\": \"Be yourself; everyone else is already taken!\",\r\n\"category\": \"Inspirational\",\r\n\"authorId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/quotes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quotes",
+								"1"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "143"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8f-+EI2nndIHN/Ok9ydt1f7ccwKQdo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 31 Aug 2024 23:14:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Quote updated\",\n    \"quote\": {\n        \"id\": 1,\n        \"quoteName\": \"Be yourself; everyone else is already taken!\",\n        \"category\": \"Inspirational\",\n        \"authorId\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "updateQuote",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "login Author",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"email\": \"kevin@email.com\",\r\n\"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/authors/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"authors",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login Author",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"email\": \"kevin@email.com\",\r\n\"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"login"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "224"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e0-XrS9qnRpXu/FS9cPxTdQfMKn6C0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 14 Sep 2024 11:14:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Author LoggedIn\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6NiwiYXV0aG9yTmFtZSI6IktldmluIFJleW5vbGQiLCJpYXQiOjE3MjYzMTI0ODcsImV4cCI6MTcyNjQ4NTI4N30.RX8BqgFARbcfO-0hXMyD0v9J8x8qUI3rfri7AYhJ2m8\"\n}"
+				},
+				{
+					"name": "login Author",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"email\": \"araphat@email.com\",\r\n\"password\": \"yasser123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/V1/authors/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"V1",
+								"authors",
+								"login"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "225"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e1-/UWflYQ8afH1ZywY/AKWs/Rtnh0\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 18 Sep 2024 06:54:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Author LoggedIn\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JJZCI6OCwiYXV0aG9yTmFtZSI6Illhc3NlciBBcmFwaGF0IiwiaWF0IjoxNzI2NjQyNDYzLCJleHAiOjE3MjY4MTUyNjN9.cMxwxGtDT5L4eo34o_pUGeM2Vue5L0cPWhD2kbjtKvw\"\n}"
+				}
+			]
+		}
+	]
+}
