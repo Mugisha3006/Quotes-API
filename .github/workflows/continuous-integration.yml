@@ -1,0 +1,42 @@
+name: Continuous-Integration
+
+on: 
+    pull_request:
+      branches: [main]
+
+env:
+    DATABASE_URL: "postgresql://postgres:3006@localhost:5432/qoutes-api-db?schema=public"
+    
+jobs:
+    testing-api:
+        runs-on: ubuntu-latest
+        
+        services:
+            postgres:
+                image: postgres:14-alpine
+                env:
+                    POSTGRES_USER: postgres
+                    POSTGRES_PASSWORD: 3006
+                    POSTGRES_DB: qoutes-api-db
+                ports:
+                    - 5432:5432
+
+        
+        steps:
+            - name: Checkout code into the runner
+              uses: actions/checkout@v4
+
+            - name: setup nodejs on the runner
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+
+            - name: Install all dependencies
+              run: npm ci
+
+            - name: Run migration files against DB
+              run: npx prisma migrate dev
+
+            - name: run the integration tests
+              run: npm test
+             
