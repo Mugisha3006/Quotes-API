@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1727460779834" clover="3.2.0">
+  <project timestamp="1727460779835" name="All files">
+    <metrics statements="134" coveredstatements="79" conditionals="20" coveredconditionals="10" methods="17" coveredmethods="10" elements="171" coveredelements="99" complexity="0" loc="134" ncloc="134" packages="4" files="8" classes="8"/>
+    <package name="Quotes-API">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="server.js" path="C:\Users\Administrator\Desktop\Assignments\Quotes-API\server.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="Quotes-API.Controllers">
+      <metrics statements="89" coveredstatements="38" conditionals="12" coveredconditionals="6" methods="11" coveredmethods="4"/>
+      <file name="authorController.js" path="C:\Users\Administrator\Desktop\Assignments\Quotes-API\Controllers\authorController.js">
+        <metrics statements="56" coveredstatements="32" conditionals="10" coveredconditionals="6" methods="6" coveredmethods="4"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="30" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="64" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="78" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="96" count="2" type="stmt"/>
+        <line num="97" count="2" type="stmt"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="104" count="2" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="113" count="1" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="154" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="155" count="0" type="stmt"/>
+        <line num="158" count="0" type="stmt"/>
+      </file>
+      <file name="quoteController.js" path="C:\Users\Administrator\Desktop\Assignments\Quotes-API\Controllers\quoteController.js">
+        <metrics statements="33" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="108" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="Quotes-API.Routes">
+      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="authorsRouter.js" path="C:\Users\Administrator\Desktop\Assignments\Quotes-API\Routes\authorsRouter.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+      <file name="quotesRouter.js" path="C:\Users\Administrator\Desktop\Assignments\Quotes-API\Routes\quotesRouter.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="Quotes-API.Utils">
+      <metrics statements="23" coveredstatements="19" conditionals="8" coveredconditionals="4" methods="6" coveredmethods="6"/>
+      <file name="circumference.js" path="C:\Users\Administrator\Desktop\Assignments\Quotes-API\Utils\circumference.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+      <file name="data-validator.js" path="C:\Users\Administrator\Desktop\Assignments\Quotes-API\Utils\data-validator.js">
+        <metrics statements="7" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+      </file>
+      <file name="token-handler.js" path="C:\Users\Administrator\Desktop\Assignments\Quotes-API\Utils\token-handler.js">
+        <metrics statements="14" coveredstatements="11" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="15" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
